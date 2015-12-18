@@ -1,5 +1,5 @@
 # Setting workind directory
-setwd("/windows/Dropbox/Coursera/R_Programming/Week 2")
+setwd("/home/malte/Git/datasciencecoursera/RProgramming/Assignment 1")
 
 pollutantmean <- function(directory, pollutant, id = 1:332) {
       files <- list.files(directory)
@@ -10,8 +10,13 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
             mean.collector <- c()
             mean.collector <- c(mean.collector, mean.file)
       }
-      mean(mean.collector)
+      mean(mean.collector, na.rm = T)
 }
 
+
 # For tests later
+source("pollutantmean.R")
 pollutantmean("specdata", "sulfate", 1:10)
+
+
+
