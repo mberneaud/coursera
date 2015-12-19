@@ -27,8 +27,8 @@ complete <- function(directory, id = 1:332) {
             ids <- append(ids, id)
       }
       completecases <- data.frame("ID" = ids, "nobs" = nobs)
-      comple.cases.clean <- head(completecases, n = length)
-      comple.cases.clean
+      comple.cases.short <- head(completecases, n = length)
+      return(comple.cases.clean)
 }
 # Tests
 source("complete.R")

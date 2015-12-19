@@ -18,5 +18,6 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
 source("pollutantmean.R")
 pollutantmean("specdata", "sulfate", 1:10)
 
-
+# Function produces a knot stack overflow of some kind, but I cannot figure
+# out why that is the case yet 
 
