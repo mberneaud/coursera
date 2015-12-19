@@ -14,11 +14,17 @@ complete <- function(directory, id = 1:332) {
       ## number of complete cases
       files <- list.files(directory)
       file.paths <- paste(directory, files, sep="/")
-      complete.cases <- data.frame("ID" = integer(),"nobs" = integer())
+      ids <- c()
+      nobs <- c()
+      #completecases <- data.frame("ID" = integer(),"nobs" = integer())
       for(i in id) {
             used.file <- read.csv(file.paths[i], header = T)
-            
+            nobs.file <- nrow(na.omit(used.file))
+            nobs <- append(nobs, nobs.file)
+            ids <- append(ids, id)
       }
-      
+      completecases <- data.frame("ID" = ids, "nobs" = nobs)
+      completecases
 }
-s
+source("complete.R")
+complete("specdata", 1)
