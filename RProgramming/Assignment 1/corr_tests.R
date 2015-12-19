@@ -1,4 +1,5 @@
 # Test area for parts of function
+setwd("/home/malte/Git/datasciencecoursera/RProgramming/Assignment 1")
 directory <- "specdata"
 threshold <- c(150)
 files <- list.files(directory)
