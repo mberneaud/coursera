@@ -1,3 +1,5 @@
 # ignores all data files used 
 *.csv
 specdata/
+*.RData
+*.Rhistory

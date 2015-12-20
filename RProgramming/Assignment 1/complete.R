@@ -18,17 +18,15 @@ complete <- function(directory, id = 1:332) {
       file.paths <- paste(directory, files, sep="/")
       ids <- c()
       nobs <- c()
-      length <- length(id)
       #completecases <- data.frame("ID" = integer(),"nobs" = integer())
-      for(i in id) {
+      for(i in seq_along(id)) {
             used.file <- read.csv(file.paths[i], header = T)
             nobs.file <- nrow(na.omit(used.file))
             nobs <- append(nobs, nobs.file)
             ids <- append(ids, id)
       }
       completecases <- data.frame("ID" = ids, "nobs" = nobs)
-      comple.cases.short <- head(completecases, n = length)
-      comple.cases.short
+      completecases
 }
 # Tests
 source("complete.R")

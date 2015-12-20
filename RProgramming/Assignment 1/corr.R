@@ -1,22 +1,5 @@
 setwd("/home/malte/Git/datasciencecoursera/RProgramming/Assignment 1")
 
-complete <- function(directory, id = 1:332) {
-      files <- list.files(directory)
-      file.paths <- paste(directory, files, sep="/")
-      ids <- c()
-      nobs <- c()
-      length <- length(id)
-      for(i in id) {
-            used.file <- read.csv(file.paths[i], header = T)
-            nobs.file <- nrow(na.omit(used.file))
-            nobs <- append(nobs, nobs.file)
-            ids <- append(ids, id)
-      }
-      completecases <- data.frame("ID" = ids, "nobs" = nobs)
-      comple.cases.short <- head(completecases, n = length)
-      comple.cases.short
-}
-
 corr <- function(directory, threshold = 0) {
       # creating string with "directory/filename" for loop later
       files <- list.files(directory)
@@ -26,7 +9,7 @@ corr <- function(directory, threshold = 0) {
       valid.ids <- c(df$nobs > threshold)
       # creating correlation vector to be filled in loop 
       corr.vector <- c()
-      for(i in files) { ## Removed hardcoding
+      for(i in seq_along(files)) { ## included hardcoding again
             if(valid.ids[i] == TRUE) { ## reads file and adds cor to corr.vector
             used.file <- read.csv(file.paths[i], header = T)
             corr.file <- cor(used.file$sulfate, used.file$nitrate, use = "complete.obs")
