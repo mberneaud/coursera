@@ -25,14 +25,14 @@ corr <- function(directory, threshold = 0) {
       df <- complete(directory)
       valid.ids <- c(df$nobs > threshold)
       # creating correlation vector to be filled in loop 
-      corr.vector <- c()
-      for(i in files) { ## Removed hardcoding
+      corr.vector <- c(NULL)
+      for(i in 1:332) { ## Unfortunately had to hardcode the length in here
             if(valid.ids[i] == TRUE) { ## reads file and adds cor to corr.vector
             used.file <- read.csv(file.paths[i], header = T)
             corr.file <- cor(used.file$sulfate, used.file$nitrate, use = "complete.obs")
             corr.vector <- c(corr.vector, corr.file)
             } else { ## appends "NULL" to corr.vector if complete.obs < 150
-                  corr.vector <- c(corr.vector)
+                  corr.vector <- c(corr.vector, NULL)
             }
       }
        corr.vector
