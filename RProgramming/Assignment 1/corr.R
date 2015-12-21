@@ -22,10 +22,6 @@ corr <- function(directory, threshold = 0) {
 }
 
 
-# Testing
-source("complete.R")
-source("corr.R")
-
 # Test 1
 cr <- corr("specdata", 150)
 head(cr)
