@@ -43,4 +43,5 @@ sum(zipcodes == 21231)
 setwd("/home/malte/Git/datasciencecoursera/Getting and Cleaning Data/Quiz 1")
 library(data.table)
 DT <- fread("Idaho.csv")
-system.time(mean(DT[DT$SEX==1,]$pwgtp15); mean(DT[DT$SEX==2,]$pwgtp15))
+system.time(mean(DT[DT$SEX==1,]$pwgtp15); mean(DT[DT$SEX==2,]$pwgtp15)) ## does not work
+system.time(mean(DT$pwgtp15,by=DT$SEX))

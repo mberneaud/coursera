@@ -4,3 +4,4 @@ specdata/
 *.RData
 *.Rhistory
 *.zip
+*.for
